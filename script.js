@@ -340,7 +340,12 @@ document.onkeydown = (event) => {
   if (resultEn.shift !== null) {
     if (isItRu) {
       if (capsLockActiv) {
-        screen.value += resultRu.shift;
+        if (resultEn.shift.toLowerCase() !== resultEn.key) {
+          screen.value += resultRu.key;
+        }
+        if (resultEn.shift.toLowerCase() === resultEn.key) {
+          screen.value += resultRu.shift;
+        }
       }
       if (!capsLockActiv & !event.shiftKey) {
         screen.value += resultRu.key;
@@ -352,7 +357,12 @@ document.onkeydown = (event) => {
 
     if (!isItRu) {
       if (capsLockActiv) {
-        screen.value += resultEn.shift;
+        if (resultEn.shift.toLowerCase() !== resultEn.key) {
+          screen.value += resultEn.key;
+        }
+        if (resultEn.shift.toLowerCase() === resultEn.key) {
+          screen.value += resultEn.shift;
+        }
       }
       if (!capsLockActiv & !event.shiftKey) {
         screen.value += resultEn.key;

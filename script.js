@@ -339,7 +339,7 @@ document.onkeydown = (event) => {
 
   if (resultEn.shift !== null) {
     if (isItRu) {
-      if (capsLockActiv) {
+      if (capsLockActiv & !event.shiftKey) {
         if (resultEn.shift.toLowerCase() !== resultEn.key) {
           screen.value += resultRu.key;
         }
@@ -350,13 +350,18 @@ document.onkeydown = (event) => {
       if (!capsLockActiv & !event.shiftKey) {
         screen.value += resultRu.key;
       }
-      if (event.shiftKey) {
+      if (event.shiftKey & !capsLockActiv) {
         screen.value += resultRu.shift;
+      }
+      if (capsLockActiv & event.shiftKey) {
+        if (resultEn.shift.toLowerCase() !== resultEn.key){
+          screen.value += resultRu.shift;
+        } 
       }
     }
 
     if (!isItRu) {
-      if (capsLockActiv) {
+      if (capsLockActiv & !event.shiftKey) {
         if (resultEn.shift.toLowerCase() !== resultEn.key) {
           screen.value += resultEn.key;
         }
@@ -367,8 +372,13 @@ document.onkeydown = (event) => {
       if (!capsLockActiv & !event.shiftKey) {
         screen.value += resultEn.key;
       }
-      if (event.shiftKey) {
+      if (event.shiftKey & !capsLockActiv) {
         screen.value += resultEn.shift;
+      }
+      if (capsLockActiv & event.shiftKey) {
+        if (resultEn.shift.toLowerCase() !== resultEn.key){
+          screen.value += resultEn.shift;
+        } 
       }
     }
   }

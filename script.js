@@ -342,8 +342,11 @@ document.onkeydown = (event) => {
       if (capsLockActiv) {
         screen.value += resultRu.shift;
       }
-      if (!capsLockActiv) {
+      if (!capsLockActiv & !event.shiftKey) {
         screen.value += resultRu.key;
+      }
+      if (event.shiftKey) {
+        screen.value += resultRu.shift;
       }
     }
 
@@ -351,8 +354,11 @@ document.onkeydown = (event) => {
       if (capsLockActiv) {
         screen.value += resultEn.shift;
       }
-      if (!capsLockActiv) {
+      if (!capsLockActiv & !event.shiftKey) {
         screen.value += resultEn.key;
+      }
+      if (event.shiftKey) {
+        screen.value += resultEn.shift;
       }
     }
   }
